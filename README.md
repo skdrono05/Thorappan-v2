@@ -3,7 +3,7 @@
   <img src="https://telegra.ph/file/7d46a1efc692bbfe9bf6c.jpg" alt="MKN BOTZ LOGO">
 </p>
 <h1 align="center">
-  <b>LUCIFER BOT</b>
+  <b>MKN BOTZ</b>
 </h1>
 
 ## Features
