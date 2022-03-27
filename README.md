@@ -1,6 +1,6 @@
-![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=welcome+To+AkBotDev's+Repo!;created+by+JOKER+TG!;A+simple+tg+FILE+SENDING+bot!)</p>
+![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=𝗪𝗘𝗟𝗖𝗢𝗠+𝗧𝗢+𝗠𝗞𝗡'𝗦+𝗥𝗘𝗣𝗢!;𝗖𝗥𝗘𝗔𝗧𝗘𝗗+𝗕𝗬+𝗠𝗥.𝗠𝗞𝗡+𝗧𝗚!;𝗔+𝗦𝗜𝗠𝗣𝗟𝗘+𝗧𝗚+𝗔𝗨𝗧𝗢𝗙𝗜𝗟𝗧𝗘𝗥+𝗕𝗢𝗧!)</p>
 <p align="center">
-  <img src="assets/logo(1).jpg" alt="Akbotmakersnew Logo">
+  <img src="https://telegra.ph/file/7d46a1efc692bbfe9bf6c.jpg" alt="MKN BOTZ LOGO">
 </p>
 <h1 align="center">
   <b>LUCIFER BOT</b>
@@ -36,11 +36,8 @@
 
 
 ## Deploy
-You can deploy this on [HEROKU.COM](https://heroku.com) & [RAILWAY](https://railway.app)
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Akbotmakersnew/LUCIFER)
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2FAkbotmakersnew%2FLUCIFER)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/MrMKN/Professor-bot)
 
 ## Commands
 ```
@@ -68,12 +65,9 @@ You can deploy this on [HEROKU.COM](https://heroku.com) & [RAILWAY](https://rail
 • /channel - to get list of total connected channels
 • /broadcast - to broadcast a message to all Eva Maria users
 ```
-# DEVS
-[AK BOT DEVS](https://t.me/Ak_Bot_SupportGroup) & [Ls BOTZ](https://t.me/Ls_Supportz)
+##Credits
 
-## CREATOR
- 
-* [JOKER TG🇮🇳](https://t.me/IAM_A_JOKER)
+[Team EvaMariaTG](https://github.com/EvaMariaTG)
 
 ## Disclaimer
 [![GNU Affero General Public License 2.0](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.en.html#header)    
