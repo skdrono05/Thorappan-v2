@@ -66,8 +66,7 @@
 • /broadcast - to broadcast a message to all Eva Maria users
 ```
 ## Original Repo
-
-* [![Team EvaMaria](https://github.com/EvamariaTG/EvaMaria)
+* [Team EvaMaria](https://github.com/EvamariaTG/EvaMaria)
 
 ## Credits 
 * [![EvaMaria-Devs](https://img.shields.io/static/v1?label=EvaMaria&message=devs&color=critical)](https://telegram.dog/EvaMariaDevs)
