@@ -65,7 +65,7 @@
 • /channel - to get list of total connected channels
 • /broadcast - to broadcast a message to all Eva Maria users
 ```
-##Credits
+#Credits
 
 [Team EvaMariaTG](https://github.com/EvaMariaTG)
 
