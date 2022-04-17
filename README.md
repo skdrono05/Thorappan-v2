@@ -42,9 +42,13 @@
 * `P_TTI_SHOW_OFF` : Customize Result Buttons to Callback or Url by (True = url / False = callback)
 
 
-## Deploy
+## Deploy to heroku 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/MrMKN/Thorappan-v3)
+
+## Deploye to railway
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/10eUaB?referralCode=gbQIvg)
 
 ## Commands
 ```
