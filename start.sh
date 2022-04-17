@@ -4,7 +4,7 @@ then
   git clone https://github.com/MrMKN/Thorappan-v3.git /LUCIFER
 else
   echo "Cloning Custom Repo from $UPSTREAM_REPO "
-  git clone $UPSTREAM_REPO /MKN
+  git clone $UPSTREAM_REPO /LUCIFER
 fi
 cd /LUCIFER
 pip3 install -U -r requirements.txt
