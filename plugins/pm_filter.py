@@ -412,7 +412,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                                                        file_caption='' if f_caption is None else f_caption)
 
                 buttons = [[
-                  InlineKeyboardButton('🔰 Main Group 🔰', url='https://t.me/KC_Films')
+                  InlineKeyboardButton('🔰 Main Group 🔰', url='https://t.me/mknmovies')
                   ]]                                        
             except Exception as e:
                 logger.exception(e)
@@ -435,15 +435,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 ms = await client.send_cached_media(
                     chat_id=CH_FILTER,
                     file_id=file_id,
-                    caption=f'<b>Hey 👋 {query.from_user.mention}</b>\n\n<b>↬ File Name:</b><code> {title}</code>\n<b>↬ Size:</b> {size}\n\n<code>𝘛𝘩𝘪𝘴 𝘔𝘦𝘴𝘴𝘢𝘨𝘦 𝘸𝘪𝘭𝘭 𝘣𝘦 𝘈𝘶𝘵𝘰-𝘥𝘦𝘭𝘦𝘵𝘦𝘥 𝘢𝘧𝘵𝘦𝘳 5 𝘔𝘪𝘯𝘶𝘵𝘦𝘴 𝘵𝘰 𝘈𝘷𝘰𝘪𝘥 𝘊𝘰𝘱𝘺𝘳𝘪𝘨𝘩𝘵 𝘐𝘴𝘴𝘶𝘦𝘴 & 𝘋𝘰𝘯𝘵 𝘧𝘰𝘳𝘨𝘦𝘵 𝘵𝘰 𝘍𝘰𝘳𝘸𝘢𝘳𝘥 𝘵𝘩𝘦 𝘧𝘪𝘭𝘦 𝘵𝘰 𝘚𝘢𝘷𝘦𝘥 𝘔𝘦𝘴𝘴𝘢𝘨𝘦𝘴 𝘣𝘦𝘧𝘰𝘳𝘦 𝘋𝘦𝘭𝘦𝘵𝘦.!</code>\n\nRequested Group - <b>{query.message.chat.title}</b>\n\n<b>💘 Team ➜ [💫 KC Filmss 💫](https://t.me/KCFilmss)</b>\n ✯ ━━━━━ ✧ ━━━━━ ✯</b>',
+                    caption=f'<b>Hey 👋 {query.from_user.mention}</b>\n<b>{file_name}</b>🔘 size - {title}\n<b>↬ Size:</b> {size}\n𝘛𝘩𝘪𝘴 𝘔𝘦𝘴𝘴𝘢𝘨𝘦 𝘸𝘪𝘭𝘭 𝘣𝘦 𝘈𝘶𝘵𝘰-𝘥𝘦𝘭𝘦𝘵𝘦𝘥 𝘢𝘧𝘵𝘦𝘳 5 𝘔𝘪𝘯𝘶𝘵𝘦𝘴 𝘵𝘰 𝘈𝘷𝘰𝘪𝘥 𝘊𝘰𝘱𝘺𝘳𝘪𝘨𝘩𝘵 𝘐𝘴𝘴𝘶𝘦𝘴 & 𝘋𝘰𝘯𝘵 𝘧𝘰𝘳𝘨𝘦𝘵 𝘵𝘰 𝘍𝘰𝘳𝘸𝘢𝘳𝘥 𝘵𝘩𝘦 𝘧𝘪𝘭𝘦 𝘵𝘰 𝘚𝘢𝘷𝘦𝘥 𝘔𝘦𝘴𝘴𝘢𝘨𝘦𝘴 𝘣𝘦𝘧𝘰𝘳𝘦 𝘋𝘦𝘭𝘦𝘵𝘦.!\nമൂവി saved messagesil മാറ്റി download ചെയ്യുക copyright കാരണം 5mint ൽ delet ആകും \nRequested Group - <b>{query.message.chat.title}</b>\n\n<i>\n=========== • ✠ • ===========\n▫️ ɢʀᴏᴜᴘ : @mknmovies \n▫️ ᴄʜᴀɴɴᴇʟ : @Mr_Movies_Main\n=========== • ✠ • ============</i>',
                     protect_content=True if ident == "filep" else False 
                 )
                 msg1 = await query.message.reply(
                 f'<b>Hey 👋{query.from_user.mention}\n'
                 f'<b>📫 Yᴏuʀ Fɪʟᴇ ɪꜱ Rᴇᴀᴅʏ 👇\n\n'
-                f'<b>↬ ғɪʟᴇ ɴᴀᴍᴇ: </b><code>{title}</code>\n'
+                f'<b>↬ ғɪʟᴇ ɴᴀᴍᴇ: </b>{title}\n'
                 f'<b>↬ sɪᴢᴇ:</b> {size}\n\n'
-                '<code>𝘛𝘩𝘪𝘴 𝘍𝘪𝘭𝘦 𝘸𝘪𝘭𝘭 𝘣𝘦 𝘋𝘦𝘭𝘦𝘵𝘦𝘥 𝘪𝘯 5 𝘔𝘪𝘯𝘶𝘵𝘦𝘴.!</code>',
+                '𝘛𝘩𝘪𝘴 𝘍𝘪𝘭𝘦 𝘸𝘪𝘭𝘭 𝘣𝘦 𝘋𝘦𝘭𝘦𝘵𝘦𝘥 𝘪𝘯 5 𝘔𝘪𝘯𝘶𝘵𝘦𝘴.!\nതാഴെ ഉള്ള click to download അമർത്തി പിന്നീട് വരുന്ന\nചാനലിൽ നിന്ന് file saved മെസ്സേജിലേക്ക് മാറ്റി download ചെയ്യുക \n⚠️ copyright കാരണം മൂവി 5mint ൽ delet ആകും ⚠️!',
                 True,
                 'html',
                 reply_markup=InlineKeyboardMarkup(
@@ -457,7 +457,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     ]
                 )
             )
-            await query.answer('Check Out The Chat',show_alert=True)
+            await query.answer('Check Out The Chat',show_alert=False)
             await asyncio.sleep(300)
             await msg1.delete()
             await msg.delete()
@@ -484,7 +484,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                                                        file_size='' if size is None else size,
                                                        file_caption='' if f_caption is None else f_caption)
                 buttons = [[
-                  InlineKeyboardButton('🔰 Main Group 🔰', url='https://t.me/KC_Films')
+                  InlineKeyboardButton('🔰 Main Group 🔰', url='https://t.me/mknmovies')
                   ]]
             except Exception as e:
                 logger.exception(e)
