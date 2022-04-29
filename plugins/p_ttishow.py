@@ -270,3 +270,14 @@ async def list_chats(bot, message):
         with open('chats.txt', 'w+') as outfile:
             outfile.write(out)
         await message.reply_document('chats.txt', caption="List Of Chats")
+
+@Client.on_message(filters.command("start") & filters.incoming)
+async def start(client, message):
+        await asyncio.sleep(2) # 😢 https://github.com/Aadhi000/Ajax-Extra-Features/blob/master/plugins/p_ttishow.py#L17 😬 wait a bit, before checking.
+        if not await db.is_user_exist(message.from_user.id):
+            await db.add_user(message.from_user.id, message.from_user.first_name)
+            await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention, message.from_user.username))
+        if len(message.command) != 2:        
+            await message.reply_chat_action("Typing")
+            m=await message.reply_sticker("CAACAgUAAxkBAAEVHZhia01M5UFL_xlg-Cjk0Rzs8I3DKgACxgQAAqcTSVZu0qqO1wWVKx4E") 
+     
