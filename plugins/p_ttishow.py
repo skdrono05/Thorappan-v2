@@ -3,13 +3,12 @@ import logging
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
+from pyrogram.errors import UserNotParticipant
 from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS, AUTH_CHANNEL
 from database.users_chats_db import db
 from database.ia_filterdb import Media
 from utils import get_size, temp, get_settings
 from Script import script
-
-invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
 
 """-----------------------------------------https://t.me/GetTGLink/4179 --------------------------------------"""
 
@@ -278,6 +277,7 @@ async def list_chats(bot, message):
 async def start(client, message):
     if invite_link:   
         try:             
+            invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))            
             user = await client.get_chat_member(invite_link, message.from_user.id)
             if user.status == "kicked":
                await message.reply_text("Sorry, You're Banned")
