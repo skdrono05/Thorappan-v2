@@ -6,13 +6,10 @@ from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInv
 from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS, AUTH_CHANNEL
 from database.users_chats_db import db
 from database.ia_filterdb import Media
-from utils import get_size, temp, get_settings, is_subscribed
+from utils import get_size, temp, get_settings
 from Script import script
-from pyrogram.errors import ChatAdminRequired
-import re
-import json
-import base64
-logger = logging.getLogger(__name__)
+
+invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
 
 """-----------------------------------------https://t.me/GetTGLink/4179 --------------------------------------"""
 
@@ -279,37 +276,24 @@ async def list_chats(bot, message):
 
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
+    if invite_link:   
+        try:             
+            user = await client.get_chat_member(invite_link, message.from_user.id)
+            if user.status == "kicked":
+               await message.reply_text("Sorry, You're Banned")
+               return
+        except UserNotParticipant:
+            await message.reply_text(
+                text="**Please Clike 👇 below and Join My Updates Channel and go to back my group and retry please 🙏. താഴെ കാണുന്ന buttonil click ചെയ്ത്നി ങ്ങൾ ഞങ്ങളുടെ ചാനലിൽ join ചെയ്യണം 🙏 എന്നിട്ട് ഗ്രൂപ്പിൽ പോയി വീണ്ടും try ചെയ്യൂ 🙏**",
+                reply_markup=InlineKeyboardMarkup([
+                    [ InlineKeyboardButton(text="📢𝙹𝚘𝚒𝚗 𝙼𝚢 𝚄𝚙𝚍𝚊𝚝𝚎 𝙲𝚑𝚊𝚗𝚗𝚎𝚕📢", url=f"{invite_link}")]
+              ])
+            )
+            return
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id, message.from_user.first_name)
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention, message.from_user.username))
     if len(message.command) != 2:        
         await message.reply_chat_action("Typing")
         m=await message.reply_sticker("CAACAgUAAxkBAAEVHZhia01M5UFL_xlg-Cjk0Rzs8I3DKgACxgQAAqcTSVZu0qqO1wWVKx4E")
-        return
-    if AUTH_CHANNEL and not await is_subscribed(client, message):
-        try:
-            invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
-            return
-        btn = [
-            [
-                InlineKeyboardButton(
-                    "🤖 Join Updates Channel", url=invite_link.invite_link
-                )
-            ]
-        ]
-
-        if message.command[1] != "subscribe":
-            kk, file_id = message.command[1].split("_", 1)
-            pre = 'checksubp' if kk == 'filep' else 'checksub' 
-            btn.append([InlineKeyboardButton(" 🔄 Try Again", callback_data=f"{pre}#{file_id}")])
-        await client.send_message(
-            chat_id=message.from_user.id,
-            text="**Please Join My Updates Channel ഞങ്ങളുടെ update chennelil join ചെയ്യണം എന്നിട്ട് groupil തിരിച്ചു പോയി വീണ്ടും try ചെയ്യൂ 🙏!**",
-            reply_markup=InlineKeyboardMarkup(btn),
-            parse_mode="markdown"
-            )
-        return
-        if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:     
-            await message.reply_chat_action("Typing")
-            m=await message.reply_sticker("CAACAgUAAxkBAAEVHZhia01M5UFL_xlg-Cjk0Rzs8I3DKgACxgQAAqcTSVZu0qqO1wWVKx4E") 
-        
+    
