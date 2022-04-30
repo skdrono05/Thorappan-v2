@@ -279,13 +279,16 @@ async def list_chats(bot, message):
 
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
-        if not await db.is_user_exist(message.from_user.id):
-            await db.add_user(message.from_user.id, message.from_user.first_name)
-            await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention, message.from_user.username))
-        if len(message.command) != 2:        
-            await message.reply_chat_action("Typing")
-            m=await message.reply_sticker("CAACAgUAAxkBAAEVHZhia01M5UFL_xlg-Cjk0Rzs8I3DKgACxgQAAqcTSVZu0qqO1wWVKx4E")
-        return 
+    if not await db.is_user_exist(message.from_user.id):
+        await db.add_user(message.from_user.id, message.from_user.first_name)
+        await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention, message.from_user.username))
+    if len(message.command) != 2:        
+        await message.reply_chat_action("Typing")
+        m=await message.reply_sticker("CAACAgUAAxkBAAEVHZhia01M5UFL_xlg-Cjk0Rzs8I3DKgACxgQAAqcTSVZu0qqO1wWVKx4E")
+        return
+    if AUTH_CHANNEL and not await is_subscribed(client, message):
+        try:
+            invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL)) 
         btn = [
             [
                 InlineKeyboardButton(
