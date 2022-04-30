@@ -10,7 +10,7 @@ from database.ia_filterdb import Media
 from utils import get_size, temp, get_settings
 from Script import script
 
-"""-----------------------------------------https://t.me/GetTGLink/4179 --------------------------------------"""
+force_sub = "Mr_Movies_Main"
 
 @Client.on_message(filters.new_chat_members & filters.group)
 async def save_group(bot, message):
@@ -275,10 +275,9 @@ async def list_chats(bot, message):
 
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
-    if invite_link:   
-        try:             
-            invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))            
-            user = await client.get_chat_member(invite_link, message.from_user.id)
+    if force_sub:   
+        try:                        
+            user = await client.get_chat_member(force_sub, message.from_user.id)
             if user.status == "kicked":
                await message.reply_text("Sorry, You're Banned")
                return
@@ -286,7 +285,7 @@ async def start(client, message):
             await message.reply_text(
                 text="**Please Clike 👇 below and Join My Updates Channel and go to back my group and retry please 🙏. താഴെ കാണുന്ന buttonil click ചെയ്ത്നി ങ്ങൾ ഞങ്ങളുടെ ചാനലിൽ join ചെയ്യണം 🙏 എന്നിട്ട് ഗ്രൂപ്പിൽ പോയി വീണ്ടും try ചെയ്യൂ 🙏**",
                 reply_markup=InlineKeyboardMarkup([
-                    [ InlineKeyboardButton(text="📢𝙹𝚘𝚒𝚗 𝙼𝚢 𝚄𝚙𝚍𝚊𝚝𝚎 𝙲𝚑𝚊𝚗𝚗𝚎𝚕📢", url=f"{invite_link}")]
+                    [ InlineKeyboardButton(text="📢𝙹𝚘𝚒𝚗 𝙼𝚢 𝚄𝚙𝚍𝚊𝚝𝚎 𝙲𝚑𝚊𝚗𝚗𝚎𝚕📢", url=f"https://t.me/{force_sub}")]
               ])
             )
             return
