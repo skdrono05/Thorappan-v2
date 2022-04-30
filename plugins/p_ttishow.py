@@ -2,7 +2,6 @@ import asyncio
 import logging
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from pyrogram.errors import ChatAdminRequired
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
 from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS, AUTH_CHANNEL
 from database.users_chats_db import db
@@ -286,12 +285,7 @@ async def start(client, message):
         if len(message.command) != 2:        
             await message.reply_chat_action("Typing")
             m=await message.reply_sticker("CAACAgUAAxkBAAEVHZhia01M5UFL_xlg-Cjk0Rzs8I3DKgACxgQAAqcTSVZu0qqO1wWVKx4E")
-        return
-        if AUTH_CHANNEL and not await is_subscribed(client, message):
-            invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL)),
-        except ChatAdminRequired:
-            logger.error("Make sure Bot is admin in Forcesub channel")
-            return
+        return 
         btn = [
             [
                 InlineKeyboardButton(
