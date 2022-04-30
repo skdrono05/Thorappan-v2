@@ -1,13 +1,18 @@
 import asyncio
+import logging
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
-from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS
+from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS, AUTH_CHANNEL
 from database.users_chats_db import db
 from database.ia_filterdb import Media
-from utils import get_size, temp, get_settings
+from utils import get_size, temp, get_settings, is_subscribed
 from Script import script
 from pyrogram.errors import ChatAdminRequired
+import re
+import json
+import base64
+logger = logging.getLogger(__name__)
 
 """-----------------------------------------https://t.me/GetTGLink/4179 --------------------------------------"""
 
@@ -280,4 +285,28 @@ async def start(client, message):
         if len(message.command) != 2:        
             await message.reply_chat_action("Typing")
             m=await message.reply_sticker("CAACAgUAAxkBAAEVHZhia01M5UFL_xlg-Cjk0Rzs8I3DKgACxgQAAqcTSVZu0qqO1wWVKx4E") 
-     
+        if AUTH_CHANNEL and not await is_subscribed(client, message):
+        try:
+            invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
+        except ChatAdminRequired:
+            logger.error("Make sure Bot is admin in Forcesub channel")
+            return
+        btn = [
+            [
+                InlineKeyboardButton(
+                    "🤖 Join Updates Channel", url=invite_link.invite_link
+                )
+            ]
+        ]
+
+        if message.command[1] != "subscribe":
+            kk, file_id = message.command[1].split("_", 1)
+            pre = 'checksubp' if kk == 'filep' else 'checksub' 
+            btn.append([InlineKeyboardButton(" 🔄 Try Again", callback_data=f"{pre}#{file_id}")])
+        await client.send_message(
+            chat_id=message.from_user.id,
+            text="**Please Join My Updates Channel to use this Bot!**",
+            reply_markup=InlineKeyboardMarkup(btn),
+            parse_mode="markdown"
+            )
+        return
