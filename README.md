@@ -44,7 +44,7 @@
 
 ## Deploy to heroku 
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/MrMKN/Thorappan-v2)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/skdrono05/Thorappan-v2)
 
 ## Deploye to railway
 
